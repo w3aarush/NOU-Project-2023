@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Spam Classifier web application</h1>
+     <form action="{{ url_for('predict')}}" method="POST">
+		<p>Enter Your Message Here</p>
+		<!-- <input type="text" name="comment"/> -->
+		<textarea name="message" rows="6" cols="50" required></textarea>
+		<br/>
+
+		<button type="submit" class="btn btn-primary btn-block btn-large" value="predict">Predict</button>
+
+	</form>
+      <br>
+   <br>
+   {% if prediction == 1%}
+	<h2>Spam</h2>
+	{% elif prediction == 0%}
+	<h2 >Not a Spam (It is a Ham)</h2>
+	{% endif %}
+
+ </div>
+
+
+</body>
+</html>
